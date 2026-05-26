@@ -11,7 +11,46 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
 
-[node name="TextEdit" type="TextEdit" parent="." unique_id=72894170]
+[node name="text_editor_control" type="Control" parent="." unique_id=68583866]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextEdit" type="TextEdit" parent="text_editor_control" unique_id=72894170]
 layout_mode = 0
-offset_right = 215.0
-offset_bottom = 202.0
+offset_left = 5.0
+offset_top = 36.0
+offset_right = 996.0
+offset_bottom = 717.0
+
+[node name="save_button" type="Button" parent="text_editor_control/TextEdit" unique_id=1732569049]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -4.0
+offset_top = -33.0
+offset_right = 70.0
+offset_bottom = -2.0
+text = "save"
+
+[node name="load_button" type="Button" parent="text_editor_control/TextEdit" unique_id=317877132]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 75.0
+offset_top = -32.0
+offset_right = 149.0
+offset_bottom = -1.0
+text = "load"
+
+[node name="calc_button" type="Button" parent="text_editor_control/TextEdit" unique_id=648103412]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 917.0
+offset_top = -29.0
+offset_right = 991.0
+text = "calc"
+
+[node name="calculator_control" type="Control" parent="." unique_id=1970939477]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
