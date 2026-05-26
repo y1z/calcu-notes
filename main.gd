@@ -20,8 +20,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-
-
 func cb_save_button() -> void:
 	print("save button")
 
