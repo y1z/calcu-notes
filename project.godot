@@ -39,7 +39,8 @@ folder_colors={
 "res://Scripts/": "green",
 "res://Sprites/": "yellow",
 "res://Textures/": "purple",
-"res://Themes/": "pink"
+"res://Themes/": "pink",
+"res://database/": "blue"
 }
 
 [physics]
