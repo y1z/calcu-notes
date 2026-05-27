@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://xkawvvvule0r"]
 
-[ext_resource type="Script" uid="uid://cnr5vk5kfwr68" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cnr5vk5kfwr68" path="res://Scripts/main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://hcht6ddqjroo" path="res://Scripts/sql_script.gd" id="2_0xm2m"]
 
 [node name="Control" type="Control" unique_id=402134623]
 layout_mode = 3
@@ -11,20 +12,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
 
+[node name="sql_manager" type="Node" parent="." unique_id=1767571331]
+unique_name_in_owner = true
+script = ExtResource("2_0xm2m")
+
 [node name="text_editor_control" type="Control" parent="." unique_id=68583866]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextEdit" type="TextEdit" parent="text_editor_control" unique_id=72894170]
+[node name="text_editor" type="TextEdit" parent="text_editor_control" unique_id=72894170]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 36.0
 offset_right = 996.0
 offset_bottom = 717.0
 
-[node name="save_button" type="Button" parent="text_editor_control/TextEdit" unique_id=1732569049]
+[node name="save_button" type="Button" parent="text_editor_control/text_editor" unique_id=1732569049]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = -4.0
@@ -33,7 +38,7 @@ offset_right = 70.0
 offset_bottom = -2.0
 text = "save"
 
-[node name="load_button" type="Button" parent="text_editor_control/TextEdit" unique_id=317877132]
+[node name="load_button" type="Button" parent="text_editor_control/text_editor" unique_id=317877132]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 75.0
@@ -42,7 +47,7 @@ offset_right = 149.0
 offset_bottom = -1.0
 text = "load"
 
-[node name="calc_button" type="Button" parent="text_editor_control/TextEdit" unique_id=648103412]
+[node name="calc_button" type="Button" parent="text_editor_control/text_editor" unique_id=648103412]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 917.0
