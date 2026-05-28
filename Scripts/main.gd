@@ -95,16 +95,22 @@ func cb_switch_button() -> void:
 
 
 func _set_variables():
-	#SQL
+	## SQL
 	sql_manager = %sql_manager
-	# Universal UI
+	## shared UI
 	save_button = %save_button
 	load_button = %load_button
 	switch_button = %switch_button
-	#Text Editor
+	## Text Editor
 	text_editor = %text_editor
 	text_editor_control = %text_editor_control
-	#Buttons
+
+	var rng := RandomNumberGenerator.new()
+	var rand_quote_index: int = rng.randi_range(0, random_quotes.size() - 1)
+	text_editor.placeholder_text = random_quotes[rand_quote_index]
+	## CALCULATOR
+	calculator_control = %calculator_control
+	# Buttons
 	button_0 = %"0_button"
 	button_1 = %"1_button"
 	button_2 = %"2_button"
@@ -126,12 +132,8 @@ func _set_variables():
 	button_next  = %"next_button"
 	button_prev = %"prev_button"
 
-	calculator_control = %calculator_control
 	
 
-	var rng := RandomNumberGenerator.new()
-	var rand_quote_index: int = rng.randi_range(0, random_quotes.size() - 1)
-	text_editor.placeholder_text = random_quotes[rand_quote_index]
 
 	pass
 
