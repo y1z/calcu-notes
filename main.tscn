@@ -81,12 +81,13 @@ offset_bottom = 696.0
 
 [node name="buttons_control" type="Control" parent="calculator_control/calculator_buttons" unique_id=2073109844]
 anchors_preset = 0
-offset_left = 31.0
-offset_top = 80.0
-offset_right = 361.0
-offset_bottom = 380.0
+offset_left = 851.0
+offset_top = 78.0
+offset_right = 1181.0
+offset_bottom = 378.0
 
 [node name="9_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=659467518]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 175.0
 offset_right = 255.0
@@ -94,6 +95,7 @@ offset_bottom = 60.0
 text = "9"
 
 [node name="8_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=481964794]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 90.0
 offset_right = 170.0
@@ -101,6 +103,7 @@ offset_bottom = 60.0
 text = "8"
 
 [node name="7_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=381937042]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 5.0
 offset_top = 1.0
@@ -109,6 +112,7 @@ offset_bottom = 61.0
 text = "7"
 
 [node name="6_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=617276648]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 5.0
 offset_top = 73.0
@@ -117,6 +121,7 @@ offset_bottom = 133.0
 text = "6"
 
 [node name="5_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=2058803899]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 90.0
 offset_top = 73.0
@@ -125,6 +130,7 @@ offset_bottom = 133.0
 text = "5"
 
 [node name="4_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=1326261310]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 175.0
 offset_top = 73.0
@@ -133,6 +139,7 @@ offset_bottom = 133.0
 text = "4"
 
 [node name="3_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=1369131306]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 176.0
 offset_top = 146.0
@@ -141,6 +148,7 @@ offset_bottom = 206.0
 text = "3"
 
 [node name="2_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=18917543]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 91.0
 offset_top = 146.0
@@ -149,6 +157,7 @@ offset_bottom = 206.0
 text = "2"
 
 [node name="1_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=2069559994]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 6.0
 offset_top = 146.0
@@ -157,6 +166,7 @@ offset_bottom = 206.0
 text = "1"
 
 [node name="0_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=540022071]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 5.0
 offset_top = 218.0
@@ -165,6 +175,7 @@ offset_bottom = 278.0
 text = "0"
 
 [node name="dot_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=1522324463]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 93.0
 offset_top = 218.0
@@ -173,12 +184,86 @@ offset_bottom = 278.0
 text = "."
 
 [node name="equal_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=2139548614]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 178.0
 offset_top = 218.0
 offset_right = 258.0
 offset_bottom = 278.0
 text = "="
+
+[node name="plus_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=197601299]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 268.0
+offset_top = 218.0
+offset_right = 348.0
+offset_bottom = 278.0
+text = "+"
+
+[node name="minus_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=1424855417]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 268.0
+offset_top = 146.0
+offset_right = 348.0
+offset_bottom = 206.0
+text = "-"
+
+[node name="mul_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=1461943650]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 270.0
+offset_top = 73.0
+offset_right = 350.0
+offset_bottom = 133.0
+text = "*"
+
+[node name="div_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=2112154560]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 270.0
+offset_right = 350.0
+offset_bottom = 60.0
+text = "/"
+
+[node name="c_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=875476176]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 270.0
+offset_top = -65.0
+offset_right = 350.0
+offset_bottom = -5.0
+text = "C"
+
+[node name="ac_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=468693845]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 175.0
+offset_top = -68.0
+offset_right = 255.0
+offset_bottom = -8.0
+text = "AC"
+
+[node name="prev_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=479314369]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 90.0
+offset_top = -68.0
+offset_right = 170.0
+offset_bottom = -8.0
+text = "prev
+"
+
+[node name="next_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=23129191]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 5.0
+offset_top = -68.0
+offset_right = 85.0
+offset_bottom = -8.0
+text = "next
+"
 
 [node name="buttons_control" type="Control" parent="." unique_id=704942265]
 anchors_preset = 0
