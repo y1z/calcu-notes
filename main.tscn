@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cnr5vk5kfwr68" path="res://Scripts/main.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://hcht6ddqjroo" path="res://Scripts/sql_script.gd" id="2_0xm2m"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xm2m"]
+
 [node name="Control" type="Control" unique_id=402134623]
 layout_mode = 3
 anchors_preset = 15
@@ -18,44 +20,192 @@ script = ExtResource("2_0xm2m")
 
 [node name="text_editor_control" type="Control" parent="." unique_id=68583866]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="text_editor" type="TextEdit" parent="text_editor_control" unique_id=72894170]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 5.0
 offset_top = 36.0
 offset_right = 996.0
 offset_bottom = 717.0
 
-[node name="save_button" type="Button" parent="text_editor_control/text_editor" unique_id=1732569049]
+[node name="calculator_control" type="Control" parent="." unique_id=1970939477]
+unique_name_in_owner = true
+anchors_preset = 0
+
+[node name="calculator_panel" type="Panel" parent="calculator_control" unique_id=167290549]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 53.0
+offset_right = 1218.0
+offset_bottom = 133.0
+
+[node name="calculator_screen_background" type="Panel" parent="calculator_control/calculator_panel" unique_id=939607208]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -35.0
+offset_right = 600.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
+
+[node name="calculator_screen" type="RichTextLabel" parent="calculator_control/calculator_panel/calculator_screen_background" unique_id=163440040]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -32.5
+offset_right = 600.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="calculator_buttons" type="Control" parent="calculator_control" unique_id=1925420603]
+anchors_preset = 0
+offset_left = 18.0
+offset_top = 146.0
+offset_right = 1218.0
+offset_bottom = 696.0
+
+[node name="buttons_control" type="Control" parent="calculator_control/calculator_buttons" unique_id=2073109844]
+anchors_preset = 0
+offset_left = 31.0
+offset_top = 80.0
+offset_right = 361.0
+offset_bottom = 380.0
+
+[node name="9_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=659467518]
+layout_mode = 0
+offset_left = 175.0
+offset_right = 255.0
+offset_bottom = 60.0
+text = "9"
+
+[node name="8_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=481964794]
+layout_mode = 0
+offset_left = 90.0
+offset_right = 170.0
+offset_bottom = 60.0
+text = "8"
+
+[node name="7_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=381937042]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 85.0
+offset_bottom = 61.0
+text = "7"
+
+[node name="6_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=617276648]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 73.0
+offset_right = 85.0
+offset_bottom = 133.0
+text = "6"
+
+[node name="5_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=2058803899]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 73.0
+offset_right = 170.0
+offset_bottom = 133.0
+text = "5"
+
+[node name="4_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=1326261310]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 73.0
+offset_right = 255.0
+offset_bottom = 133.0
+text = "4"
+
+[node name="3_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=1369131306]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 146.0
+offset_right = 256.0
+offset_bottom = 206.0
+text = "3"
+
+[node name="2_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=18917543]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 146.0
+offset_right = 171.0
+offset_bottom = 206.0
+text = "2"
+
+[node name="1_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=2069559994]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 146.0
+offset_right = 86.0
+offset_bottom = 206.0
+text = "1"
+
+[node name="0_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=540022071]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 218.0
+offset_right = 85.0
+offset_bottom = 278.0
+text = "0"
+
+[node name="dot_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=1522324463]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 218.0
+offset_right = 173.0
+offset_bottom = 278.0
+text = "."
+
+[node name="equal_button" type="Button" parent="calculator_control/calculator_buttons/buttons_control" unique_id=2139548614]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 218.0
+offset_right = 258.0
+offset_bottom = 278.0
+text = "="
+
+[node name="buttons_control" type="Control" parent="." unique_id=704942265]
+anchors_preset = 0
+
+[node name="save_button" type="Button" parent="buttons_control" unique_id=599763780]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -4.0
-offset_top = -33.0
-offset_right = 70.0
-offset_bottom = -2.0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 78.0
+offset_bottom = 34.0
 text = "save"
 
-[node name="load_button" type="Button" parent="text_editor_control/text_editor" unique_id=317877132]
+[node name="load_button" type="Button" parent="buttons_control" unique_id=1215966933]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 75.0
-offset_top = -32.0
-offset_right = 149.0
-offset_bottom = -1.0
+offset_left = 83.0
+offset_top = 3.0
+offset_right = 157.0
+offset_bottom = 34.0
 text = "load"
 
-[node name="calc_button" type="Button" parent="text_editor_control/text_editor" unique_id=648103412]
+[node name="switch_button" type="Button" parent="buttons_control" unique_id=527838248]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 917.0
-offset_top = -29.0
-offset_right = 991.0
-text = "calc"
-
-[node name="calculator_control" type="Control" parent="." unique_id=1970939477]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 925.0
+offset_top = 3.0
+offset_right = 999.0
+offset_bottom = 34.0
+text = "switch"
