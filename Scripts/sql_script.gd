@@ -4,6 +4,8 @@ enum ProjectsTables
 {
 	NONE,
 	TEST,
+	NOTES,
+	CALCULATOR,
 	COUNT,
 }
 
