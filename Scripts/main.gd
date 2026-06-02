@@ -67,6 +67,10 @@ var button_c: Button;
 var button_ac: Button;
 var button_prev: Button;
 var button_next: Button;
+## calc data
+var calc_buttons: Array[Globals.CalcButtons]
+var calc_expr_data: Array[String]
+var calc_expr_index: int
 
 var sql_manager: SQLManager
 
@@ -104,7 +108,7 @@ func make_visible(which: AppsToChose) -> void:
 
 
 func cb_save_button() -> void:
-	sql_manager.MakeTable(SQLManager.ProjectsTables.TEST)
+	sql_manager.save_all_things(text_editor, calculator_screen, calc_buttons, calc_expr_data)
 	print("save button")
 
 
@@ -121,29 +125,84 @@ func cb_switch_button() -> void:
 
 
 func cb_add_text_to_calculator(input: String) -> void:
+	match input:
+		"0":
+			calc_buttons.append(Globals.CalcButtons.Button_0)
+		"1":
+			calc_buttons.append(Globals.CalcButtons.Button_1)
+		"2":
+			calc_buttons.append(Globals.CalcButtons.Button_2)
+		"3":
+			calc_buttons.append(Globals.CalcButtons.Button_3)
+		"4":
+			calc_buttons.append(Globals.CalcButtons.Button_4)
+		"5":
+			calc_buttons.append(Globals.CalcButtons.Button_5)
+		"6":
+			calc_buttons.append(Globals.CalcButtons.Button_6)
+		"7":
+			calc_buttons.append(Globals.CalcButtons.Button_7)
+		"8":
+			calc_buttons.append(Globals.CalcButtons.Button_8)
+		"9":
+			calc_buttons.append(Globals.CalcButtons.Button_9)
 	calculator_screen.text += input;
 	pass
 
 
 func cb_remove_text_from_calculator() -> void:
 	calculator_screen.clear()
+	calculator_screen.text = "";
+	calc_buttons.append(Globals.CalcButtons.Button_c)
+
+
+func cb_previous_expresion() -> void:
+	var next_index: int = calc_expr_index - 1;
+	if next_index < 0:
+		next_index = calc_expr_data.size() - 1;
+	calculator_screen.text = calc_expr_data[next_index]
+	calc_expr_index = next_index
+	pass
+
+
+func cb_next_expresion() -> void:
+	var next_index: int = calc_expr_index + 1;
+	if next_index > calc_expr_data.size() - 1:
+		next_index = 0;
+	calculator_screen.text = calc_expr_data[next_index]
+	calc_expr_index = next_index
+	pass
 
 
 func cb_add_dot_to_calculator() -> void:
 	if calculator_state == CalculatorState.HasDot: return
+	calc_buttons.append(Globals.CalcButtons.Button_dot)
 	calculator_state = CalculatorState.HasDot
 	calculator_screen.text += "."
 	pass
 
 
 func cb_add_math_operator_to_calculator(which_operator: MathOperator) -> void:
+	match which_operator:
+		MathOperator.Plus:
+			calc_buttons.append(Globals.CalcButtons.Button_plus)
+		MathOperator.Minus:
+			calc_buttons.append(Globals.CalcButtons.Button_minus)
+		MathOperator.Mul:
+			calc_buttons.append(Globals.CalcButtons.Button_mul)
+		MathOperator.Div:
+			calc_buttons.append(Globals.CalcButtons.Button_div)
+		MathOperator.Equal:
+			calc_buttons.append(Globals.CalcButtons.Button_equal)
 	calculator_state = CalculatorState.DoesNotHaveDot
 	calculator_screen.text += " " + MathOperatorToSymbol[which_operator] + " "
 	pass
 
 
 func cb_evaluate_expression() -> void:
+	calc_buttons.append(Globals.CalcButtons.Button_equal)
 	var expr: Expression = Expression.new()
+	calc_expr_data.append(calculator_screen.text)
 	var err = expr.parse(calculator_screen.text)
 
 	if err != OK:
@@ -204,10 +263,13 @@ func _set_variables():
 	button_ac = % "ac_button"
 	button_next = % "next_button"
 	button_prev = % "prev_button"
+
+	calc_expr_index = 0;
+	calc_expr_data = []
 	pass
 
 
-func _connect_events():
+func _connect_events() -> void:
 
 
 	var default_func = func(x: String) -> void:
@@ -216,6 +278,7 @@ func _connect_events():
 	save_button.button_down.connect(cb_save_button)
 	load_button.button_down.connect(cb_load_button)
 	switch_button.button_down.connect(cb_switch_button)
+
 	button_0.button_down.connect(default_func.bind("0"))
 	button_1.button_down.connect(default_func.bind("1"))
 	button_2.button_down.connect(default_func.bind("2"))
@@ -226,11 +289,15 @@ func _connect_events():
 	button_7.button_down.connect(default_func.bind("7"))
 	button_8.button_down.connect(default_func.bind("8"))
 	button_9.button_down.connect(default_func.bind("9"))
+
 	button_dot.button_down.connect(cb_add_dot_to_calculator)
 	button_plus.button_down.connect(cb_add_math_operator_to_calculator.bind(MathOperator.Plus))
 	button_minus.button_down.connect(cb_add_math_operator_to_calculator.bind(MathOperator.Minus))
 	button_mul.button_down.connect(cb_add_math_operator_to_calculator.bind(MathOperator.Mul))
 	button_div.button_down.connect(cb_add_math_operator_to_calculator.bind(MathOperator.Div))
 	button_equals.button_down.connect(cb_evaluate_expression)
+	button_c.button_down.connect(cb_remove_text_from_calculator)
+	button_prev.button_down.connect(cb_previous_expresion)
+	button_next.button_down.connect(cb_previous_expresion)
 
 	pass
